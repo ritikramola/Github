@@ -133,7 +133,6 @@ Use an ls command to show the contents of the working tree:
     ls -a
 
 ## Basic Commands
-
 Git works by remembering the changes to your files as if it's taking snapshots of your file system.
 
 ### git status
