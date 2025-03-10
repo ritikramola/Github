@@ -79,8 +79,83 @@ Projects
 
     git --version
 
-You should see output that looks something like this example:
+2.You should see output that looks something like this example:
 
     Output
     git version 2.7.4
+
+3.To configure Git, you must define some global variables: user.name and user.email. Both are required for you to make commits.
+
+4.Set your name in Cloud Shell with the following command. Replace <USER_NAME> with the user name you want to use.
+    git config --global user.name "<USER_NAME>"
+
+5.Now, use this command to create a user.email configuration variable, replacing <USER_EMAIL> with your e-mail address:
+    git config --global user.email "<USER_EMAIL>"
+
+6.Run the following command to check that your changes worked:
+    git config --list
+
+7.Confirm that the output includes two lines that are similar to the following example. Your name and e-mail address will be different from what's shown in the example.
+
+Output
+user.name=User Name
+user.email=user-name@contoso.com
+
+### Set up your Git repository
+Git works by checking for changes to files within a certain folder. We'll create a folder to serve as our working tree (project directory) and let Git know about it, so it can start tracking changes. We tell Git to start tracking changes by initializing a Git repository into that folder.
+
+Start by creating an empty folder for your project, and then initialize a Git repository inside it.
+
+1.Create a folder named Cats. This folder will be the project directory, also called the working tree. The project directory is where all files related to your project are stored. In this exercise, it's where your website and the files that create the website and its contents are stored.
+    mkdir Cats
+
+2.Change to the project directory by using the cd command:
+    cd Cats
+
+3.Now, initialize your new repository and set the name of the default branch to main:
+
+If you're running Git version 2.28.0 or later, use the following command:
+    git init --initial-branch=main
+
+Or use the following command:
+    git init -b main
+
+After you run the initialize command, you should see output that's similar to this example:
+
+Output
+    Initialized empty Git repository in /home/<user>/Cats/.git/
+    Switched to a new branch 'main'
+
+Now, use a git status command to show the status of the working tree:
+    git status
+
+Use an ls command to show the contents of the working tree:
+    ls -a
+
+## Basic Commands
+
+Git works by remembering the changes to your files as if it's taking snapshots of your file system.
+
+### git status
+The first and most commonly used Git command is *git status*. You've already used it once, in the preceding exercise, to see that you had initialized your Git repo properly.
+
+*git status* displays the state of the working tree (and of the staging area—we'll talk more about the staging area soon). It lets you see which changes are currently being tracked by Git, so you can decide whether you want to ask Git to take another snapshot.
+
+### git add
+*git add* is the command you use to tell Git to start keeping track of changes in certain files.
+
+The technical term is staging these changes. You'll use git add to stage changes to prepare for a commit. All changes in files that have been added but not yet committed are stored in the staging area.
+
+### git commit
+After you've staged some changes for commit, you can save your work to a snapshot by invoking the *git commit* command.
+
+Commit is both a verb and a noun. It has essentially the same meaning as when you commit to a plan or commit a change to a database. As a verb, committing changes means you put a copy (of the file, directory, or other "stuff") in the repository as a new version. As a noun, a commit is the small chunk of data that gives the changes you committed a unique identity. The data that's saved in a commit includes the author's name and e-mail address, the date, comments about what you did (and why), an optional digital signature, and the unique identifier of the preceding commit.
+
+### git log
+The *git log* command allows you to see information about previous commits. Each commit has a message attached to it (a commit message), and the *git log* command prints information about the most recent commits, like their time stamp, the author, and a commit message. This command helps you keep track of what you've been doing and what changes have been saved.
+
+### git help
+You've already tried out the *git help* command, but it's worth reminding you about. Use this command to easily get information about all the commands you've learned so far, and more.
+
+Remember, each command comes with its own help page, too. You can find these help pages by typing *git <command> --help*. For example, *git commit --help* brings up a page that tells you more about the git commit command and how to use it.
 
